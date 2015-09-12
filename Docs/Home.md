@@ -16,7 +16,4 @@ Documentation
 * [Imagine Behavior](Documentation/The-Imagine-Behavior.md)
 * [Imagine Helper](Documentation/The-Imagine-Helper.md)
 
-Examples
---------
 
-* [Basic Examples](Examples/Basic-Example.md)

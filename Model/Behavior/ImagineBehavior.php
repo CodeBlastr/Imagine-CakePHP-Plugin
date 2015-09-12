@@ -120,7 +120,7 @@ class ImagineBehavior extends ModelBehavior {
  * hashImageOperations
  *
  * @param array $imageSizes
- * @param int $hashLenght
+ * @param integer $hashLenght
  * @return string
  */
 	public function hashImageOperations($imageSizes, $hashLenght = 8) {
@@ -340,10 +340,8 @@ class ImagineBehavior extends ModelBehavior {
  * Wrapper for Imagines thumbnail
  *
  * @param Model Model
- * @param Imagine Image Object
+ * @param object Imagine Image Object
  * @param array Array of options for processing the image
- * @throws InvalidArgumentException if no height or width was passed
- * @return void
  */
 	public function thumbnail(Model $Model, &$Image, $options = array()) {
 		if (empty($options['height']) || empty($options['width'])) {
@@ -360,15 +358,13 @@ class ImagineBehavior extends ModelBehavior {
 /**
  * Wrapper for Imagines resize
  *
- * @param Model $Model
- * @param $Image
+ * @param Model Model
+ * @param object Imagine Image Object
  * @param array Array of options for processing the image
- * @throws InvalidArgumentException
- * @internal param \Imagine $image Image Object
  */
 	public function resize(Model $Model, $Image, $options = array()) {
 		if (empty($options['height']) || empty($options['width'])) {
-			throw new InvalidArgumentException(__d('imagine', 'You have to pass height and width in the options!'));
+			throw new InvalidArgumentException(__d('Imagine', 'You have to pass height and width in the options!'));
 		}
 
 		$Image->resize(new Imagine\Image\Box($options['width'], $options['height']));

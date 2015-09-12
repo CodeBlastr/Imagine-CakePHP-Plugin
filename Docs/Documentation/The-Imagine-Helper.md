@@ -1,5 +1,4 @@
-Imagine Helper
-==============
+# Imagine Helper #
 
 The helper will generate image urls with named params to get thumbnails or whatever else operation is wanted and a hashes the url.
 

@@ -51,7 +51,7 @@ class ImagineComponent extends Component {
  *
  * @param ComponentCollection $collection
  * @param array $settings
- * @return ImagineComponent
+ * @return void
  */
 	public function __construct(ComponentCollection $collection, $settings = array()) {
 		$this->settings = Set::merge($this->settings, $settings);
@@ -67,7 +67,7 @@ class ImagineComponent extends Component {
 	public function startUp(Controller $Controller) {
 		$this->Controller = $Controller;
 		if (!empty($this->settings['actions'])) {
-			if (in_array($this->Controller->action, $this->settings['actions'])) {
+			if (in_array($this->Controlle->action, $this->settings['actions'])) {
 				if ($this->settings['checkHash'] === true) {
 					$this->checkHash();
 				}
@@ -83,7 +83,6 @@ class ImagineComponent extends Component {
  * of the requested image that was processed with these params. How you do that
  * is up to you.
  *
- * @throws InvalidArgumentException
  * @return mixed String if a hash could be retrieved, false if not
  */
 	public function getHash() {
@@ -109,7 +108,6 @@ class ImagineComponent extends Component {
  * just incrementing the width and height for example in the url.
  *
  * @param boolean $error If set to false no 404 page will be rendered if the hash is wrong
- * @throws NotFoundException if the hash was not present
  * @return boolean True if the hashes match
  */
 	public function checkHash($error = true) {
@@ -129,8 +127,7 @@ class ImagineComponent extends Component {
 /**
  * Unpacks the strings into arrays that were packed with ImagineHelper::pack()
  *
- * @param array $namedParams
- * @internal param array $params If empty the method tries to get them from Controller->request['named']
+ * @param array $params If empty the method tries to get them from Controller->request['named']
  * @return array Array with operation options for imagine, if none found an empty array
  */
 	public function unpackParams($namedParams = array()) {
